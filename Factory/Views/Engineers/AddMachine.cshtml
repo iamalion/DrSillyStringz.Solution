@@ -20,7 +20,7 @@
         @Html.DropDownList("MachineId", ViewBag.MachineId as SelectList)
     </div>
     <div>
-        @* @Html.ValidationMessageFor(model => model.MachineId)  *@
+        <p>@Html.ValidationMessageFor(model => model.MachineId, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
     </div>
 </div>
 <div class="center">

@@ -5,10 +5,12 @@ namespace Factory.Models
 {
     public class Machine
     {
-        // [Required(ErrorMessage = "You must select a machine.")]
+        
         public int MachineId { get; set; }
         [Display(Name = "Machine Name: ")]
         public string MachineName { get; set; }
+        [Required(ErrorMessage ="You cannot add a machine without selecting an engineer")]
+        public int EngineerId { get; set; }
         public List<EngineerMachine> JoinEntities { get; }
     
     }

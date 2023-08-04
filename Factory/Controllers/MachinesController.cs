@@ -38,14 +38,14 @@ namespace Factory.Controllers
                             .Include(machine => machine.JoinEntities)
                             .ThenInclude(join => join.Engineer)
                             .FirstOrDefault(machine => machine.MachineId == id);
-            ViewBag.PageTitle = "Machine Details";
+            // ViewBag.PageTitle = "Machine Details";
             return View(thisMachine);
         }
         public ActionResult Edit(int id)
         {
             Machine thisMachine = _db.Machines
                             .FirstOrDefault(machine => machine.MachineId == id);
-            ViewBag.PageTitle = "Edit Machine";
+            // ViewBag.PageTitle = "Edit Machine";
             return View(thisMachine);
         }
         [HttpPost]
