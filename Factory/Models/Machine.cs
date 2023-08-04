@@ -8,8 +8,12 @@ namespace Factory.Models
         
         public int MachineId { get; set; }
         [Display(Name = "Machine Name: ")]
+        [Required(ErrorMessage = "The name field can't be blank.")]
         public string MachineName { get; set; }
-        [Required(ErrorMessage ="You must select an engineer.")]
+        [Display(Name = "Manufacture date: ")]
+        [Required(ErrorMessage = "The date can't be blank.")]
+        [DataType(DataType.Date)]
+        public string ManufactureDate { get; set; }
         public int EngineerId { get; set; }
         public List<EngineerMachine> JoinEntities { get; }
     

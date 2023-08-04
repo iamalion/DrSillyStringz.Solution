@@ -8,9 +8,11 @@ namespace Factory.Models
         
         public int EngineerId { get; set; }
         [Display(Name = "Engineer Name: ")]
+        [Required(ErrorMessage = "The name field can't be blank.")]
         public string EngineerName { get; set; }
-        [Range(1, int.MaxValue, ErrorMessage = "You must select a machine.")]
+        [Required(ErrorMessage = "The job title field can't be blank.")]
         public int MachineId { get; set; }
+        public string JobTitle { get; set; }
         public List<EngineerMachine> JoinEntities { get; }
     }
 }

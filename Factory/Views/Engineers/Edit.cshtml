@@ -16,10 +16,16 @@
         <div>
             @Html.LabelFor(model => model.EngineerName)
             @Html.EditorFor(model => model.EngineerName)
+            @Html.LabelFor(model => model.JobTitle)
+            @Html.TextBoxFor(model => model.JobTitle)
         </div>
     </div>
     <div class="center">
         <input type="submit" value="Save" class="button"/>
+    </div>
+    <div class="error-container">
+        <p>@Html.ValidationMessageFor(model => model.EngineerName, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
+        <p>@Html.ValidationMessageFor(model => model.JobTitle, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
     </div>
     <div class="link-container">
         <p>@Html.ActionLink("Delete Engineer", "Delete", new { id = Model.EngineerId })</p>

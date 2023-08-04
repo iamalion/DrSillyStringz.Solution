@@ -13,8 +13,18 @@
     <div class="form-container">
         @Html.LabelFor(model => model.EngineerName)
         @Html.TextBoxFor(model => model.EngineerName)
+        @Html.LabelFor(model => model.JobTitle)
+        @Html.TextBoxFor(model => model.JobTitle)
     </div>
     <div class="center">
         <input type="submit" value="Add new engineer" />
+    </div>
+    <div class="error-container">
+        <p>@Html.ValidationMessageFor(model => model.EngineerName, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
+        <p>@Html.ValidationMessageFor(model => model.JobTitle, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
+    </div>
+    <hr />
+    <div class="link-container">
+        <p>@Html.ActionLink("Back to all engineers", "Index")</p>
     </div>
 }
