@@ -17,7 +17,7 @@
     @Html.HiddenFor(model => model.MachineId)
     <div>
         @Html.Label("Select Engineer: ")
-        @Html.DropDownList("model => model.EngineerId", ViewBag.EngineerId as IEnumerable<SelectListItem>, "Select Engineer", new { @class = "form-control" })
+        @Html.DropDownList("EngineerId", ViewBag.EngineerId as SelectList)
         @Html.ValidationMessageFor(model => model.EngineerId)
     </div>
 </div>

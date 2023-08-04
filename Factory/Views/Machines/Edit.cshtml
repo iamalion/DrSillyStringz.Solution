@@ -16,16 +16,14 @@
         <div>
             @Html.LabelFor(model => model.MachineName)
             @Html.EditorFor(model => model.MachineName)
+            <p>@Html.ValidationMessageFor(model => model.MachineName, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
             @Html.LabelFor(model => model.ManufactureDate)
             @Html.EditorFor(model => model.ManufactureDate)
+            <p>@Html.ValidationMessageFor(model => model.ManufactureDate, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
         </div>
     </div>
     <div class="center">
         <input type="submit" value="Save" class="button"/>
-    </div>
-    <div class="error-container">
-        <p>@Html.ValidationMessageFor(model => model.MachineName, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
-        <p>@Html.ValidationMessageFor(model => model.ManufactureDate, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
     </div>
     <div class="link-container">
         <p>@Html.ActionLink("Delete Machine", "Delete", new { id = Model.MachineId })</p>
