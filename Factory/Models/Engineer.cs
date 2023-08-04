@@ -8,5 +8,6 @@ namespace Factory.Models
         public int EngineerId { get; set; }
         [Display(Name = "Engineer Name: ")]
         public string EngineerName { get; set; }
+        public List<EngineerMachine> JoinEntities { get; }
     }
 }

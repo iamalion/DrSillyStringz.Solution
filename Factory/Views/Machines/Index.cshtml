@@ -20,5 +20,7 @@
         <li>@Html.ActionLink($"{machine.MachineName}", "Details", new { id = machine.MachineId })</li>
     }
 </ul>
-<p>@Html.ActionLink("Add new machine", "Create", "Machines")</p>
-<p>@Html.ActionLink("Return home", "Index", "Home")</p>
+<div class="link-container">
+    <p>@Html.ActionLink("Add new machine", "Create", "Machines")</p>
+    <p>@Html.ActionLink("Return home", "Index", "Home")</p>
+</div>

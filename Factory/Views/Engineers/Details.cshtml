@@ -1,0 +1,33 @@
+@{
+  Layout = "_Layout";
+}
+
+@using Factory.Models
+@model Factory.Models.Engineer
+
+<div class="container">
+    <h1>Engineer Details</h1>
+    <h3>@Html.DisplayNameFor(model => model.EngineerName) @Html.DisplayFor(model => model.EngineerName)</h3>
+</div>
+<div class="container">
+@if(@Model.JoinEntities.Count == 0)
+{
+  <p>This engineer is not allowed to operate any machines.</p>
+}
+else
+{
+  <h4>This engineer is allowed to operate the following machines:</h4>
+  <ul>
+  @foreach(EngineerMachine join in Model.JoinEntities)
+  {
+    <li>@join.Machine.MachineName</li>
+  }
+  </ul>
+}
+</div>
+<div class="container">
+    <p>@Html.ActionLink("Edit Engineer", "Edit", new { id = Model.EngineerId })</p>
+    <p>@Html.ActionLink("Add Engineer to Machine", "AddMachine", new { id = Model.EngineerId })</p>
+    <p>@Html.ActionLink("Delete Engineer", "Delete", new { id = Model.EngineerId})</p>
+    <p>@Html.ActionLink("Back to All Engineers", "Index")</p>
+</div>
