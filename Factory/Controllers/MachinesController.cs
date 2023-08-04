@@ -20,5 +20,87 @@ namespace Factory.Controllers
             ViewBag.PageTitle = "All Machines";
             return View();
         }
+        public ActionResult Create()
+        {
+            ViewBag.PageTitle = "Add Machine";
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Create(Machine machine)
+        {
+            {
+                _db.Machines.Add(machine);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+        }
+        public ActionResult Details(int id)
+        {
+            Machine thisMachine = _db.Machines
+                            .Include(machine => machine.JoinEntities)
+                            .ThenInclude(join => join.Engineer)
+                            .FirstOrDefault(machine => machine.MachineId == id);
+            ViewBag.PageTitle = "Machine Details";
+            return View(thisMachine);
+        }
+        public ActionResult Edit(int id)
+        {
+            Machine thisMachine = _db.Machines
+                            .FirstOrDefault(machine => machine.MachineId == id);
+            ViewBag.PageTitle = "Edit Machine";
+            return View(thisMachine);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(Machine machine)
+        {
+            _db.Machines.Update(machine);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        public ActionResult Delete(int id)
+        {
+            Machine thisMachine = _db.Machines
+                            .FirstOrDefault(machine => machine.MachineId == id);
+            ViewBag.PageTitle = "Delete Machine";
+            return View(thisMachine);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            Machine thisMachine = _db.Machines
+                            .FirstOrDefault(machine => machine.MachineId == id);
+            _db.Machines.Remove(thisMachine);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        public ActionResult AddEngineer(int id)
+        {
+            Machine thisMachine = _db.Machines
+                            .FirstOrDefault(machines => machines.MachineId == id);
+            List<Engineer> engineers = _db.Engineers.ToList();
+            SelectList engineerList = new SelectList(engineers, "EngineerId", "EngineerName");
+            ViewBag.EngineerId = engineerList;
+            return View(thisMachine);
+        }
+
+        [HttpPost]
+        public ActionResult AddEngineer(Machine machine, int engineerId)
+        {
+        #nullable enable
+        EngineerMachine? joinEntity = _db.EngineerMachines
+                            .FirstOrDefault(join => (join.EngineerId == engineerId && join.MachineId == machine.MachineId));
+        #nullable disable
+        if (joinEntity == null && engineerId != 0)
+        {
+            _db.EngineerMachines.Add(new EngineerMachine() { EngineerId = engineerId, MachineId = machine.MachineId });
+            _db.SaveChanges();
+        }
+        return RedirectToAction("Details", new { id = machine.MachineId });
+        }
+    
     }
 }
+
+
