@@ -21,7 +21,7 @@ namespace Factory.Controllers
             model.Add("machines", machines);
             model.Add("engineers", engineers);
             ViewBag.PageTitle = "Dr. Silly Stringz";
-            return View();
+            return View(model);
         }
 
     }
