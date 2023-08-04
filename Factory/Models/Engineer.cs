@@ -5,6 +5,7 @@ namespace Factory.Models
 {
     public class Engineer 
     {
+        // [Required(ErrorMessage = "You must select a engineer.")]
         public int EngineerId { get; set; }
         [Display(Name = "Engineer Name: ")]
         public string EngineerName { get; set; }

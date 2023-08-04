@@ -19,6 +19,9 @@
         @Html.Label("Select Engineer: ")
         @Html.DropDownList("EngineerId", ViewBag.EngineerId as SelectList)
     </div>
+    <div>
+        @Html.ValidationMessageFor(model => model.EngineerId)
+    </div>
 </div>
 <div class="center">
     <input type="submit" value="Save" />

@@ -5,7 +5,7 @@ namespace Factory.Models
 {
     public class Machine
     {
-        [Required(ErrorMessage = "You must select a machine.")]
+        // [Required(ErrorMessage = "You must select a machine.")]
         public int MachineId { get; set; }
         [Display(Name = "Machine Name: ")]
         public string MachineName { get; set; }

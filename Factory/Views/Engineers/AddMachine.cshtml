@@ -19,6 +19,9 @@
         @Html.Label("Select Machine: ")
         @Html.DropDownList("MachineId", ViewBag.MachineId as SelectList)
     </div>
+    <div>
+        @Html.ValidationMessageFor(model => model.MachineId) 
+    </div>
 </div>
 <div class="center">
     <input type="submit" value="Save" />
