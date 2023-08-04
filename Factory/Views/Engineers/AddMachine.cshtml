@@ -19,15 +19,11 @@
         @Html.Label("Select Machine: ")
         @Html.DropDownList("MachineId", ViewBag.MachineId as SelectList)
     </div>
-    <div>
-        <p>@Html.ValidationMessageFor(model => model.MachineId, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
-    </div>
 </div>
 <div class="center">
     <input type="submit" value="Save" />
 </div>
 }
-
 <div class="link-container">
-    <p>@Html.ActionLink("Back to all engineers", "Index")</p>
+    <p>@Html.ActionLink("Back to All Engineers", "Index")</p>
 </div>

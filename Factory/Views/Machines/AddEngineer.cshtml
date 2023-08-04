@@ -18,7 +18,6 @@
     <div>
         @Html.Label("Select Engineer: ")
         @Html.DropDownList("EngineerId", ViewBag.EngineerId as SelectList)
-        @Html.ValidationMessageFor(model => model.EngineerId)
     </div>
 </div>
 <div class="center">
@@ -26,5 +25,5 @@
 </div>
 }
 <div class="link-container">
-    <p>@Html.ActionLink("Back to all machines", "Index")</p>
+    <p>@Html.ActionLink("Back to All Machines", "Index")</p>
 </div>

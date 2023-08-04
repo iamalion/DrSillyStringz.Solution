@@ -10,9 +10,10 @@ namespace Factory.Models
         [Display(Name = "Engineer Name: ")]
         [Required(ErrorMessage = "The name field can't be blank.")]
         public string EngineerName { get; set; }
+        [Display(nameof = "Job Title: ")]
         [Required(ErrorMessage = "The job title field can't be blank.")]
-        public int MachineId { get; set; }
         public string JobTitle { get; set; }
+        public int MachineId { get; set; }
         public List<EngineerMachine> JoinEntities { get; }
     }
 }
