@@ -9,7 +9,7 @@
 
 <h4>Machines</h4>
 <p>@Html.ActionLink("Manage machines", "Index", "Machines")</p>
-@if (Model["machines"].Length == 0)
+@if (Model["machines"] == null || Model["machines"].Length == 0)
 {
   <p>No machines have been added yet!</p>
 } 
@@ -22,7 +22,7 @@
 
 <h4>Engineeers</h4>
 <p>@Html.ActionLink("Manage engineers", "Index", "Engineers")</p> 
-@if (Model["engineers"].Length == 0)
+@if (Model["engineers"] == null ||Model["engineers"].Length == 0)
 {
   <p>No engineers have been added yet!</p>
 } 
