@@ -22,7 +22,7 @@ namespace Factory.Controllers
         }
         public ActionResult Create()
         {
-            ViewBag.PageTitle = "Add Machine";
+            // ViewBag.PageTitle = "Add Machine";
             return View();
         }
         [HttpPost]
@@ -59,7 +59,7 @@ namespace Factory.Controllers
         {
             Machine thisMachine = _db.Machines
                             .FirstOrDefault(machine => machine.MachineId == id);
-            ViewBag.PageTitle = "Delete Machine";
+            // ViewBag.PageTitle = "Delete Machine";
             return View(thisMachine);
         }
         [HttpPost, ActionName("Delete")]
@@ -77,7 +77,7 @@ namespace Factory.Controllers
                             .FirstOrDefault(machines => machines.MachineId == id);
             List<Engineer> engineers = _db.Engineers.ToList();
             SelectList engineerList = new SelectList(engineers, "EngineerId", "EngineerName");
-            ViewBag.PageTitle = "Add Engineer to Machine"
+            // ViewBag.PageTitle = "Add Machine to Engineer";
             ViewBag.EngineerId = engineerList;
             return View(thisMachine);
         }

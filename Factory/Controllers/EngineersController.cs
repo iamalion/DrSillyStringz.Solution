@@ -28,7 +28,7 @@ namespace Factory.Controllers
         [HttpPost]
         public ActionResult Create(Engineer engineer)
         {
-            _db.Engineer.Add(engineer);
+            _db.Engineers.Add(engineer);
             _db.SaveChanges();
             return RedirectToAction("Index");
         }
@@ -57,7 +57,7 @@ namespace Factory.Controllers
         }
         public ActionResult Delete(int id)
         {
-            Engineer thisEngineer = _db.engineers
+            Engineer thisEngineer = _db.Engineers
                             .FirstOrDefault(engineer => engineer.EngineerId == id);
             ViewBag.PageTitle = "Delete Engineer";
             return View(thisEngineer);
@@ -65,7 +65,7 @@ namespace Factory.Controllers
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {
-            Engineer thisEngineer = _db.Engineer
+            Engineer thisEngineer = _db.Engineers
                             .FirstOrDefault(engineer => engineer.EngineerId == id);
             _db.Engineers.Remove(thisEngineer);
             _db.SaveChanges();
@@ -74,10 +74,10 @@ namespace Factory.Controllers
         public ActionResult AddMachine(int id)
         {
             Engineer thisEngineer = _db.Engineers
-                            .FirstOrDefault(engineer => engineers.EngineerId == id);
+                            .FirstOrDefault(engineers => engineers.EngineerId == id);
             List<Machine> machines = _db.Machines.ToList();
             SelectList machineList = new SelectList(machines, "MachineId", "MachineName");
-            ViewBag.PageTitle = "Add Machine to Engineer"
+            // ViewBag.PageTitle = "Add Engineer to Machine";
             ViewBag.MachineId = machineList;
             return View(thisEngineer);
         }
@@ -86,7 +86,7 @@ namespace Factory.Controllers
         {   
             #nullable enable
             EngineerMachine? joinEntity = _db.EngineerMachines
-                                .FirstOrDefault(join => (join.MachineId == MachineId && join.EngineerId == engineer.engineerId));
+                                .FirstOrDefault(join => (join.MachineId == machineId && join.EngineerId == engineer.EngineerId));
             #nullable disable
             if (joinEntity == null && machineId != 0)
             {
