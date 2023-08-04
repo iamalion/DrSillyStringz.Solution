@@ -17,12 +17,12 @@ namespace Factory.Controllers
         public ActionResult Index()
         {
             List<Machine> model = _db.Machines.ToList();
-            // ViewBag.PageTitle = "All Machines";
+            ViewBag.PageTitle = "All Machines";
             return View(model);
         }
         public ActionResult Create()
         {
-            // ViewBag.PageTitle = "Add Machine";
+            ViewBag.PageTitle = "Add Machine";
             return View();
         }
         [HttpPost]
@@ -38,14 +38,14 @@ namespace Factory.Controllers
                             .Include(machine => machine.JoinEntities)
                             .ThenInclude(join => join.Engineer)
                             .FirstOrDefault(machine => machine.MachineId == id);
-            // ViewBag.PageTitle = "Machine Details";
+            ViewBag.PageTitle = "Machine Details";
             return View(thisMachine);
         }
         public ActionResult Edit(int id)
         {
             Machine thisMachine = _db.Machines
                             .FirstOrDefault(machine => machine.MachineId == id);
-            // ViewBag.PageTitle = "Edit Machine";
+            ViewBag.PageTitle = "Edit Machine";
             return View(thisMachine);
         }
         [HttpPost]
@@ -59,7 +59,7 @@ namespace Factory.Controllers
         {
             Machine thisMachine = _db.Machines
                             .FirstOrDefault(machine => machine.MachineId == id);
-            // ViewBag.PageTitle = "Delete Machine";
+            ViewBag.PageTitle = "Delete Machine";
             return View(thisMachine);
         }
         [HttpPost, ActionName("Delete")]
@@ -77,7 +77,7 @@ namespace Factory.Controllers
                             .FirstOrDefault(machines => machines.MachineId == id);
             List<Engineer> engineers = _db.Engineers.ToList();
             SelectList engineerList = new SelectList(engineers, "EngineerId", "EngineerName");
-            // ViewBag.PageTitle = "Add Machine to Engineer";
+            ViewBag.PageTitle = "Add Machine to Engineer";
             ViewBag.EngineerId = engineerList;
             return View(thisMachine);
         }
