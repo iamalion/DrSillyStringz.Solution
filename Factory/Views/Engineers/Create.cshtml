@@ -11,12 +11,14 @@
 @using (Html.BeginForm())
 {
     <div class="form-container">
-        @Html.LabelFor(model => model.EngineerName)
-        @Html.TextBoxFor(model => model.EngineerName)
-        <p>@Html.ValidationMessageFor(model => model.EngineerName, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
-        @Html.LabelFor(model => model.JobTitle)
-        @Html.TextBoxFor(model => model.JobTitle)
-        <p>@Html.ValidationMessageFor(model => model.JobTitle, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
+        <div>
+            @Html.LabelFor(model => model.EngineerName)
+            @Html.TextBoxFor(model => model.EngineerName)
+            <p>@Html.ValidationMessageFor(model => model.EngineerName, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
+            @Html.LabelFor(model => model.JobTitle)
+            @Html.TextBoxFor(model => model.JobTitle)
+            <p>@Html.ValidationMessageFor(model => model.JobTitle, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
+        </div>
     </div>
     <div class="center">
         <input type="submit" value="Add new engineer" />

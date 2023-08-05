@@ -7,7 +7,7 @@
     <h1>Delete Machine</h1>
 </div>
 <hr />
-<div class="center">
+<div class="container">
     <h2>Are you sure you want to delete @Html.DisplayFor(model => model.MachineName)? This action cannot be undone.</h2>
 </div>
 
@@ -16,6 +16,8 @@
     <input type="submit" value="Delete" class="button" />
 </div>
 }
+<hr />
 <div class="link-container">
     <p>@Html.ActionLink("Back to All Machines", "Index")</p>
+    <p>@Html.ActionLink("Return Home", "Index", "Home")</p>
 </div>
