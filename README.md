@@ -36,8 +36,8 @@ _Note: You will need to have the following installed locally before you can run 
 3. Navigate to this project's production directory called "Factory" with `$ cd Factory`.
 4. Within the production directory run the command `$ touch appsettings.json`.
 5. In the appsettings.json file, paste in the following code, replacing [user-id] and [password] with your  username and password for MySQL Workbench. (Remember to remove the square brackets when inputting your details):
-{
-  `"ConnectionStrings": {
+`{
+  "ConnectionStrings": {
       "DefaultConnection": "Server=localhost;Port=3306;database=factory;uid=[user-id];pwd=[password];"
   }
 }`
