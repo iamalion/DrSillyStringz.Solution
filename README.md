@@ -27,7 +27,8 @@ _Note: You will need to have the following installed locally before you can run 
 1. In the terminal run these commands in order:
 - `$ git clone https://github.com/user/DrSillyStringz.Solution.git`
 - `cd DrSillyStringz.Solution` 
-- `$ touch .gitignore` 2. copy/paste this into the .gitignore file:
+- `$ touch .gitignore` 
+2. copy/paste this into the .gitignore file:
 - obj
 - bin
 - appsettings.json
@@ -39,12 +40,12 @@ _Note: You will need to have the following installed locally before you can run 
   `"ConnectionStrings": {
       "DefaultConnection": "Server=localhost;Port=3306;database=factory;uid=[user-id];pwd=[password];"
   }
-}``
+}`
 6. Within the production directory "Factory", run `$ dotnet ef database update` to instantiate the database.
 7. Still within the production directory, run `$ dotnet watch run` in the command line to launch the application in development mode in a browser, and interact with the application.
 
 ## Known Bugs
-- Occasionally the ViewBag.PageTitle will fail, resulting in an error
+- None at this time
 
 ## MIT License
 Copyright (c) August 2023 Lindsay Warr
