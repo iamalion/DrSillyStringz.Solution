@@ -47,4 +47,4 @@ _Note: You will need to have the following installed locally before you can run 
 - Occasionally the ViewBag.PageTitle will fail, resulting in an error
 
 ## MIT License
-Copyright (c) 2023 Lindsay Warr
+Copyright (c) August 2023 Lindsay Warr
